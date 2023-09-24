@@ -11,6 +11,8 @@ These are my dotfiles for OSX Ventura. There are many like them, but these ones 
 	- configurdes homebrew includings casks & Microsoft Office (runtime: a few minutes)
 - dock
 	- configure your OSX dock (runtime: < 1 min)
+- docker
+	- purges dangling and unnecessary images, containers, images (runtime: ca. 1 min)
 - duti
 	- set default app associations via ```duti``` (runtime: < 1 min)
 - hazel
