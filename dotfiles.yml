@@ -1,0 +1,31 @@
+---
+- name: Set up local workstation
+  hosts: local
+
+  roles:
+    - role: brew
+      tags: brew
+    - role: dock
+      tags: dock
+    - role: docker
+      tags: docker
+    - role: duti
+      tags: duti
+    - role: gem
+      tags: gem
+    - role: hazel
+      tags: hazel
+    - role: iterm
+      tags: iterm
+    - role: mas
+      tags: mas
+    - role: npm
+      tags: npm
+    - role: osx
+      tags: osx
+    - role: pip
+      tags: pip
+    - role: sublimetext
+      tags: sublimetext
+    - role: symlinks
+      tags: symlinks

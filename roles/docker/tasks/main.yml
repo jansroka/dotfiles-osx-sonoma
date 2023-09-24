@@ -1,0 +1,33 @@
+---
+- name: Ensure ansible-galaxy collection install community.docker is installed
+  ansible.builtin.shell: ansible-galaxy collection install community.docker
+  register: result
+  changed_when: "'Starting collection install process' in result.stdout"
+  tags: docker
+
+- name: Prune unused containers older >24h
+  community.docker.docker_prune:
+    containers: true
+    containers_filters:
+      until: 24h
+  tags: docker
+
+- name: Prune unused images
+  community.docker.docker_prune:
+    images: true
+  tags: docker
+
+- name: Prune unused networks
+  community.docker.docker_prune:
+    networks: true
+  tags: docker
+
+- name: Prune unused volumes
+  community.docker.docker_prune:
+    volumes: true
+  tags: docker
+
+- name: Prune builder cache
+  community.docker.docker_prune:
+    builder_cache: true
+  tags: docker

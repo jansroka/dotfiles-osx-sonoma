@@ -1,0 +1,6 @@
+---
+- name: Import base tasks
+  ansible.builtin.import_tasks: base.yml
+
+- name: Import defaults tasks
+  ansible.builtin.import_tasks: defaults.yml

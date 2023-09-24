@@ -1,0 +1,15 @@
+---
+# from https://github.com/geerlingguy/ansible-collection-mac
+- name: "See if this Dock item exists: {{ item.name | default(item) }}"
+  ansible.builtin.command: "dockutil --find '{{ item.name }}'"
+  register: dock_item_exists
+  failed_when: >
+    "No such file or directory" in dock_item_exists.stdout
+    or "command not found" in dock_item_exists.stdout
+  changed_when: false
+  tags: dock
+
+- name: "Ensure this Dock item exists: {{ item.name | default(item) }}"
+  ansible.builtin.command: "dockutil --add '{{ item.path }}'"
+  when: dock_item_exists.rc >0
+  tags: dock

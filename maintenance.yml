@@ -1,0 +1,6 @@
+---
+- name: Run maintenance
+  hosts: local
+
+  roles:
+    - role: maintenance

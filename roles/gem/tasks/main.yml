@@ -1,0 +1,36 @@
+---
+- name: Get all currently installed gem
+  ansible.builtin.shell: "set -o pipefail && gem list | sed 's/([^)]*)//g;s/  / /g' | sed 's/ //g'"
+  register: gem_installedgems
+  changed_when: false
+  tags: gem
+
+- name: Install gem Packages (skip if already installed)
+  community.general.gem:
+    name: "{{ item }}"
+    state: present
+    norc: false # load ~/.gemrc to ensure --no-document and --source https://rubygems.org is used
+  loop: "{{ default_gems }}"
+  when: item not in gem_installedgems.stdout
+  tags: gem
+
+- name: Get all currently installed and outdated gem
+  ansible.builtin.shell: "set -o pipefail && gem outdated | sed 's/([^)]*)//g;s/  / /g' | sed 's/ //g'"
+  register: gem_outdatedgems
+  changed_when: false
+  tags: gem
+
+- name: Update all currently installed and outdated gem
+  community.general.gem:
+    name: "{{ item }}"
+    state: latest
+    norc: false # load ~/.gemrc to ensure --no-document and --source https://rubygems.org is used
+  with_items: "{{ gem_outdatedgems.stdout_lines }}"
+  register: gem_pkg_result
+  until: gem_pkg_result is success
+  ignore_errors: true
+  tags: gem
+
+- name: Run 'gem cleanup'
+  ansible.builtin.command: gem cleanup
+  tags: gem

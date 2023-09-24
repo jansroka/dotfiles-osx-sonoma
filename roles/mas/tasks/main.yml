@@ -1,0 +1,27 @@
+---
+# Lots of input for this comes from https://github.com/geerlingguy/ansible-role-mas/blob/master/tasks/main.yml
+- name: Ensure mas is installed via brew
+  community.general.homebrew:
+    name: mas
+    state: present
+  tags: mas
+
+- name: Ensure your list of Mac App Store apps is present
+  community.general.mas:
+    id: "{{ item.id }}"
+    state: present
+  loop: "{{ mas_installed_apps }}"
+  tags: mas
+
+- name: Ensure unwanted Mac App Store apps are uninstalled
+  community.general.mas:
+    id: "{{ item.id }}"
+    state: absent
+  loop: "{{ mas_uninstalled_apps }}"
+  become: true  # uninstall requires sudo
+  tags: mas
+
+- name: Upgrade all Mac App Store apps
+  community.general.mas:
+    upgrade_all: true
+  tags: mas

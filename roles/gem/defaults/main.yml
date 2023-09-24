@@ -1,0 +1,19 @@
+---
+default_gems:
+  - bundler
+  - csv
+  - date
+  - debug
+  - json
+  - liquid
+  - prettyprint
+  - rake
+  - redis
+  - redis-client
+  - reek
+  - rss
+  - rubocop
+  - rubocop-rspec
+  - sidekiq
+  - stripe
+  - yaml

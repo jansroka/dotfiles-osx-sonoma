@@ -1,0 +1,44 @@
+---
+- name: Ensure sublime-text brew cask is installed
+  community.general.homebrew_cask:
+    name: sublime-text
+    greedy: true
+    state: present
+  tags: sublimetext
+
+- name: Remove Packages folder
+  ansible.builtin.file:
+    path: "/Users/jan/Library/Application Support/Sublime Text/Packages/"
+    state: absent
+  tags: sublimetext
+
+- name: Re-add Packages folder
+  ansible.builtin.file:
+    path: "/Users/jan/Library/Application Support/Sublime Text/Packages/"
+    state: directory
+    mode: '0755'
+  tags: sublimetext
+
+# Symlink
+- name: Symlink Sublime Text User Packages+Prefs
+  ansible.builtin.file:
+    src: "/Users/jan/Code/Private/dotfiles/roles/sublimetext/files/User/"
+    dest: "/Users/jan/Library/Application Support/Sublime Text/Packages/User"
+    state: link
+    force: true
+    follow: false
+  tags: sublimetext
+
+# Important to understand:
+# Don't symlink into /usr/bin, this is blocked by OSX.
+# Use /usr/local/bin instead
+- name: Ensure symlinks in bin
+  ansible.builtin.file:
+    src: "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl"
+    dest: "/usr/local/bin/{{ item }}"
+    state: link
+  become: true
+  with_items:
+    - subl
+    - sublime
+  tags: sublimetext

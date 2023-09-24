@@ -1,0 +1,110 @@
+#!/usr/bin/env bash
+
+# Easier navigation: .., ..., ...., ....., ~ and -
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ~="cd ~" # `cd` is probably faster to type though
+alias -- -="cd -"
+
+# List all files colorized in long format
+alias l="ls -laFh --color=auto"
+
+# List all files colorized in long format, including dot files
+alias la="ls -laFh --color=auto"
+
+# List only directories
+alias lsd="ls -lFh --color=auto | grep --color=never '^d'"
+
+# Always use color output for `ls`
+alias ls="command ls --color=auto"
+
+# Always enable colored `grep` output
+# Note: `GREP_OPTIONS="--color=auto"` is deprecated, hence the alias usage.
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+# Enable aliases to be sudo’ed
+alias sudo='sudo '
+
+# Get week number
+alias week='date +%V'
+
+# Stopwatch
+alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
+
+# IP addresses
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias localip="ipconfig getifaddr en0"
+alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
+
+# Show active network interfaces
+alias ifactive="ifconfig | pcregrep -M -o '^[^\t:]+:([^\n]|\n\t)*status: active'"
+
+# Flush DNS
+alias dnsflush="sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder && echo 'DNS flushed'"
+
+# Clean up LaunchServices to remove duplicates in the “Open With” menu
+alias lscleanup="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder"
+
+# View HTTP traffic
+alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
+alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
+
+# Show/Hide dotfiles
+alias show_files="defaults write com.apple.finder AppleShowAllFiles YES && killall Finder /System/Library/CoreServices/Finder.app"
+alias hide_files="defaults write com.apple.finder AppleShowAllFiles NO && killall Finder /System/Library/CoreServices/Finder.app"
+
+# Canonical hex dump; some systems have this symlinked
+command -v hd > /dev/null || alias hd="hexdump -C"
+
+# macOS has no `md5sum`, so use `md5` as a fallback
+command -v md5sum > /dev/null || alias md5sum="md5"
+
+# macOS has no `sha1sum`, so use `shasum` as a fallback
+command -v sha1sum > /dev/null || alias sha1sum="shasum"
+
+# Recursively delete `.DS_Store` files
+alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
+
+# Empty the Trash on all mounted volumes and the main HDD.
+# Also, clear Apple’s System Logs to improve shell startup speed.
+# Finally, clear download history from quarantine. https://mths.be/bum
+alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl; sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'delete from LSQuarantineEvent'"
+
+# Print each PATH entry on a separate line
+alias path='echo -e ${PATH//:/\\n}'
+
+# veracrypt commandline
+alias veracrypt='/Applications/VeraCrypt.app/Contents/MacOS/Veracrypt'
+
+# git
+alias gst='clear && git status'
+alias gcm='git checkout main'
+
+# daito docker
+alias daitoapp='cd ~/Code/Daito/app'
+alias daitoattach='cd ~/Code/Daito/app && d attach web'
+alias daitobash='cd ~/Code/Daito/app && dcr web bash'
+alias daitoconsole='cd ~/Code/Daito/app && dcr web rails c'
+alias daitodown='cd ~/Code/Daito/app && dcd'
+alias daitotest='cd ~/Code/Daito/app && dcr web ./scripts/fluffy.sh'
+alias daitoup='cd ~/Code/Daito/app && dcu'
+alias daitoupb='cd ~/Code/Daito/app && dcub'
+alias d="docker"
+alias dcb="docker compose build"
+alias dcd="docker compose down --remove-orphans && docker system prune --volumes -f"
+alias dce="docker compose exec"
+alias dcr="docker compose run -it --rm"
+alias dcu="docker compose up"
+#alias dcub="docker image prune -af && docker buildx build -t daito-web:latest --force-rm --rm --pull=false -f Dockerfile.web . && docker compose up --build --force-recreate --remove-orphans"
+alias dcub="docker compose up --build --force-recreate"
+
+# vscode
+alias code='/Applications/Visual\ Studio\ Code.app/Contents/MacOS/Electron'
+
+# ansible
+# make sure we add the ssh key to ssh-agent so that we have to enter the ssh key password only once
+#alias ansible-playbook='ssh-add -l > /dev/null  || ssh-add ~/.ssh/id_dto-retool-upcloud && ansible-playbook'

@@ -1,0 +1,31 @@
+---
+dock_icon_size: 70
+
+# Dock items to remove.
+dock_items_remove:
+ - TV
+ - Podcasts
+ - 'App Store'
+ - Calendar
+ - Maps
+ - Photos
+ - Messages
+ - Safari
+ - FaceTime
+ - Contacts
+ - Reminders
+ - Music
+ - Mail
+ - Launchpad
+ - Notes
+ - 'System Preferences'
+
+# Dock items to add. `pos` parameter is optional and will place the Dock item
+# in a particular position in the Dock.
+dock_items_persist:
+ - name: "Firefox"
+   path: "/Applications/Firefox.app/"
+   pos: 2
+ - name: "Sublime Text"
+   path: "/Applications/Sublime Text.app/"
+   pos: 3

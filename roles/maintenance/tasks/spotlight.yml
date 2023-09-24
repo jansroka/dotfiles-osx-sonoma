@@ -1,0 +1,27 @@
+---
+# Spotlight maintenance
+
+- name: Switch spotlight indexing off
+  ansible.builtin.command: mdutil -i off /
+  become: true
+  tags: maintenance
+
+- name: Delete spotlight db (1)
+  ansible.builtin.command: sudo rm -rf /.Spotlight-V100
+  become: true
+  tags: maintenance
+
+- name: Delete spotlight db (2)
+  ansible.builtin.command: sudo rm -rf /.Spotlight-V200
+  become: true
+  tags: maintenance
+
+- name: Turn spotlight indexing back on
+  ansible.builtin.command: sudo mdutil -i on /
+  become: true
+  tags: maintenance
+
+- name: Erase and rebuild index
+  ansible.builtin.command: sudo mdutil -E /
+  become: true
+  tags: maintenance

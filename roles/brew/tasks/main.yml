@@ -1,0 +1,90 @@
+---
+- name: Configure Homebrew taps
+  community.general.homebrew_tap:
+    name: "{{ item }}"
+  loop: "{{ brew_taps }}"
+  tags: brew
+
+- name: Get list of already installed Homebrew formulae
+  ansible.builtin.command: brew leaves
+  register: brew_output
+  tags: brew
+
+# - debug:
+#    var: brew_output
+#  tags: brew
+
+- name: Install Homebrew formulae (skip if already installed)
+  community.general.homebrew:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ brew_packages }}"
+  when: item not in brew_output.stdout
+  tags: brew
+
+- name: Get list of already installed Homebrew casks
+  ansible.builtin.command: brew list --cask
+  register: brew_cask_output
+  tags: brew
+
+# - debug:
+#    var: cask_output
+#  tags: brew
+
+- name: Install Homebrew casks (skip if already installed)
+  community.general.homebrew_cask:
+    name: "{{ item }}"
+    greedy: true
+    state: present
+  ignore_errors: true
+  loop: "{{ brew_cask_packages }}"
+  when: item not in brew_cask_output.stdout
+  tags: brew
+
+- name: Install QuickLook plugins (skip if already installed)
+  community.general.homebrew_cask:
+    name: "{{ item }}"
+    state: latest
+  ignore_errors: true
+  when: item not in brew_cask_output.stdout
+  loop: "{{ brew_cask_ql_packages }}"
+  tags: brew
+
+- name: Update brew itself
+  community.general.homebrew:
+    update_homebrew: true
+  tags: brew
+
+- name: Upgrade all brew packages
+  community.general.homebrew:
+    upgrade_all: true
+  tags: brew
+
+- name: Update & upgrade casks
+  community.general.homebrew_cask:
+    upgrade_all: true
+  tags: brew
+
+- name: Cleanup brew
+  ansible.builtin.command: brew cleanup
+  tags: brew
+
+# This is not a work of art, but out of necessity. I know this can be made much nicer
+
+# delete brew caches
+# figure out cache path
+- name: Find brew cache path / $(brew --cache)
+  ansible.builtin.command: brew --cache
+  register: brew_cache_path
+  tags: maintenance, softwareupdate
+
+# Run "rm -rfv {{ brewcachepath.stdout }}"
+- name: Delete brew cache
+  ansible.builtin.file:
+    path: '{{ brew_cache_path.stdout }}'
+    state: absent
+  tags: maintenance, softwareupdate
+
+- name: Repair taps
+  ansible.builtin.command: brew tap --repair
+  tags: maintenance, softwareupdate

@@ -1,0 +1,103 @@
+// Settings in here override those in "Default/Preferences.sublime-settings",
+// and are overridden in turn by syntax-specific settings.
+{
+
+    // package "Monokai++"
+    "color_scheme": "Packages/Monokai Extended/Monokai Extended Bright.tmTheme",
+
+    // how stuff looks
+    /*"font_size": 24,*/
+    "tab_size": 2,
+    "font_options": [
+        "gray_antialias",
+        "subpixel_antialias"
+    ],
+
+    // Additional spacing at the bottom of each line, in pixels
+    "line_padding_bottom": 3,
+    // Additional spacing at the top of each line, in pixels
+    "line_padding_top": 3,
+
+    "indent_guide_options": [
+        "draw_normal",
+        "draw_active"
+    ],
+
+    "match_brackets_angle": true,
+    "overlay_scroll_bars": "enabled",
+    //caret
+    "wide_caret": true,
+    "caret_style": "wide",
+
+    // minimap lines 145ff in the preferences
+    "draw_minimap_border": true,
+    "always_show_minimap_viewport": true,
+
+    "auto_complete_commit_on_tab": true,
+    "auto_find_in_selection": true,
+    "bold_folder_labels": true,
+    //indent
+    "detect_indentation": true,
+    "auto_indent": true,
+    "smart_indent": true,
+
+    // Take focus when a file is dragged and dropped onto Sublime Text. On
+    // Windows this value is overidden to true in the platform specific
+    // settings.
+    "focus_on_file_drop": true,
+
+    //highlight
+    "highlight_line": true,
+    "highlight_modified_tabs": true,
+    "highlight_line_number": true,
+
+    "close_windows_when_empty": true,
+    "trim_trailing_white_space_on_save": true,
+    "ensure_newline_at_eof_on_save": true,
+    "word_wrap": true,
+
+    //
+    // User Interface Settings
+    // Line 525ff in the preferences
+    //
+
+    //theme relevant
+    "theme": "Default.sublime-theme",
+
+    // Show folders in the side bar in bold
+    /*"bold_folder_labels": true,*/
+
+    //
+    // Application Behavior Settings
+    // Line 636 ff in the preferences
+    //
+
+    // On Mac, this value is overridden in the platform specific settings.
+    "open_files_in_new_window": "never",
+
+    // Mac only: This controls if an empty window is created at startup or not.
+    "create_window_at_startup": false,
+
+    // Set to true to close windows as soon as the last file is closed, unless
+    // there's a folder open within the window.
+    // On Mac, this value is overridden in the platform specific settings, so
+    // you'll need to place this line in your user settings to override it.
+    /*"close_windows_when_empty": true,*/
+
+    // folder_exclude_patterns and file_exclude_patterns control which files
+    // are listed in folders on the side bar. These can also be set on a per-
+    // project basis.
+    "folder_exclude_patterns": [".svn", ".git", ".hg", "CVS", ".Trash", ".Trash-*"],
+    "file_exclude_patterns": ["*.pyc", "*.pyo", "*.exe", "*.dll", "*.obj", "*.o", "*.a", "*.lib", "*.so", "*.dylib", "*.ncb", "*.sdf", "*.suo", "*.pdb", "*.idb", ".DS_Store", ".directory", "desktop.ini", "*.class", "*.psd", "*.db", "*.sublime-workspace", "*.sublime-project", "*.xlsx"],
+    // These files will still show up in the side bar, but won't be included in
+    // Goto Anything or Find in Files
+    "binary_file_patterns": ["*.jpg", "*.jpeg", "*.png", "*.gif", "*.ttf", "*.tga", "*.dds", "*.ico", "*.eot", "*.pdf", "*.swf", "*.jar", "*.zip"],
+
+    "ignored_packages": [
+        "Vintage",
+    ],
+    /*"font_size": 17,*/
+    /*"font_size": 19,*/
+    /*"font_size": 19,*/
+    /*"font_size": 32,*/
+}

@@ -1,0 +1,9 @@
+---
+:verbose: true
+:sources:
+- http://rubygems.org/
+:update_sources: true
+:concurrent_downloads: 8
+install: --no-ri --no-rdoc
+update: --no-ri --no-rdoc
+gem: --no-rdoc --no-ri --no-document

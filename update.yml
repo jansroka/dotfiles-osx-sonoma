@@ -1,0 +1,10 @@
+---
+- name: Run updates
+  hosts: local
+
+  roles:
+    - role: brew
+    - role: gem
+    - role: mas
+    - role: npm
+    - role: pip

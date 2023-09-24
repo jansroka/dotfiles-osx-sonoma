@@ -1,0 +1,28 @@
+---
+# from https://github.com/soehlert/osx-ansible/blob/master/roles/osx_base/tasks/main.yml
+- name: Check hostname
+  ansible.builtin.command: hostname
+  register: osx_current_hostname
+  changed_when: false
+  tags: osx, osx-hostname
+
+- name: Set computer name
+  ansible.builtin.command: "scutil --set {{ item }} Zeitgeist"
+  loop:
+    - ComputerName
+    - LocalHostName
+    - HostName
+  become: true
+  become_user: root
+  when: osx_current_hostname.stdout != "Zeitgeist"
+  tags: osx, osx-hostname
+
+- name: Defaults host name
+  community.general.osx_defaults:
+    domain: com.apple.smb.server
+    key: NetBIOSName
+    type: string
+    value: "Zeitgeist"
+  become: true
+  become_user: root
+  tags: osx, osx-hostname

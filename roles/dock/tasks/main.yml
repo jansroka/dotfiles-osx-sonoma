@@ -1,0 +1,42 @@
+---
+# from https://github.com/geerlingguy/ansible-collection-mac
+- name: Install dockutil
+  community.general.homebrew:
+    name: dockutil
+    state: present
+  tags: dock
+
+- name: Set Dock settings
+  community.general.osx_defaults: domain=com.apple.dock key={{ item.key }} type={{ item.type }} value={{ item.value }}
+  with_items:
+    # Enable highlight hover effect for the grid view of a stack (Dock)
+    - {key: "mouse-over-hilite-stack", type: "bool", value: "true"}
+    # Set the icon size (px) of Dock items
+    - {key: "tilesize", type: "float", value: "{{ dock_icon_size }}"}
+    # Show indicator lights for open applications in the Dock
+    - {key: "show-process-indicators", type: "bool", value: "true"}
+    # Speed up Mission Control animations
+    - {key: "expose-animation-duration", type: "float", value: "0.1"}
+    # Don’t show Dashboard as a Space
+    - {key: "dashboard-in-overlay", type: "bool", value: "false"}
+  notify:
+    - Kill Dock
+  tags: dock
+
+- name: Remove configured Dock items.
+  ansible.builtin.include_tasks: dock-remove.yml
+  loop: "{{ dock_items_remove }}"
+  tags: dock
+
+- name: Ensure required dock items exist.
+  ansible.builtin.include_tasks: dock-add.yml
+  loop: "{{ dock_items_persist }}"
+  tags: dock
+
+- name: Ensure dock items are in correct position.
+  ansible.builtin.include_tasks: dock-position.yml
+  when:
+    - item.pos is defined
+    - item.pos > 0
+  loop: "{{ dock_items_persist }}"
+  tags: dock

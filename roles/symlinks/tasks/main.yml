@@ -1,0 +1,10 @@
+---
+- name: Symlinkg dotfiles
+  ansible.builtin.file:
+    src: "{{ symlinks_files_src_dir }}/{{ item.src }}"
+    dest: "{{ item.dest }}"
+    state: link
+    force: true
+    follow: false
+  loop: "{{ symlinks }}"
+  tags: symlinks

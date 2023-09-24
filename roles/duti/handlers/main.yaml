@@ -1,0 +1,4 @@
+---
+- name: Kill Finder
+  ansible.builtin.command: killall Finder
+  tags: osx

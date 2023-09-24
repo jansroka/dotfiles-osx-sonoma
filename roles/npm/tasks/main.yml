@@ -1,0 +1,18 @@
+---
+- name: Install node/npm Packages globally
+  community.general.npm:
+    name: "{{ item }}"
+    state: present
+    global: true
+  with_items:
+    - browser-sync
+    - eslint
+    - joi
+    - jshint
+    - license-checker
+    - netlify-cli
+    - npm-upgrade
+    - npm-check
+    - npm
+    - prettier
+  tags: npm
