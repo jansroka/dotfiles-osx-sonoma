@@ -3,27 +3,7 @@ dock_icon_size: 70
 
 # Dock items to remove.
 dock_items_remove:
- - TV
- - Podcasts
- - 'App Store'
- - Calendar
- - Maps
- - Photos
- - Messages
- - Safari
- - FaceTime
- - Contacts
- - Reminders
- - Music
- - Mail
- - Launchpad
- - Notes
- - 'System Settings'
- - Keynote
- - Pages
- - Keynote
- - Numbers
- - Freeform
+ - all
 
 # Dock items to add. `pos` parameter is optional and will place the Dock item
 # in a particular position in the Dock.
