@@ -1,3 +1,13 @@
+# Archive Repository
+
+This repo served me well for the brief time I used OSX Ventura in 2023. But since I have moved on from OSX Ventura to OSX Sonoma in October 2023, this repo is now archived. This archived state is a snapshot of the repo as it was when I last used it. It is not maintained anymore.
+
+Last used version of OSX Ventura, that I used with these dotfiles, was 13.6 (released on Sep 21, 2023).
+
+My current dotfiles are located at [https://github.com/jansroka/dotfiles](https://github.com/jansroka/dotfiles).
+
+Original README.md follows below.
+
 # dotfiles
 These are my dotfiles for OSX Ventura. There are many like them, but these ones are mine.
 
@@ -15,6 +25,8 @@ These are my dotfiles for OSX Ventura. There are many like them, but these ones 
 	- purges dangling and unnecessary images, containers, images (runtime: ca. 1 min)
 - duti
 	- set default app associations via ```duti``` (runtime: < 1 min)
+- gem
+	- set up and maintain my default gems (runtime: 1 min)
 - hazel
 	- ensure basic Hazel.app settings (runtime: seconds)
 - iterm
@@ -29,8 +41,6 @@ These are my dotfiles for OSX Ventura. There are many like them, but these ones 
 	- set lots of defaults for OSX and OSX apps (runtime: < 1 min)
 - pip
 	- install and maintain pip modules (runtime: < 1 min)
-- softwareupdate
-	- check ```softwareupdate``` for things we might need to install (runtime: seconds ideally)
 - sublime-text
 	- install via brew cask & symlink (runtime:  < 1 min)
 - symlinks
