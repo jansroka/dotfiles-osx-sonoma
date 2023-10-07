@@ -41,7 +41,7 @@ fi
 
 # Make sure we cd into the dotfiles directory
 # See https://stackoverflow.com/questions/255414/why-cant-i-change-directories-using-cd-in-a-script
-cd ~/Code/Private/dotfiles/
+cd ~/Code/Private/dotfiles
 $SHELL
 
 echo "[i] Git pull'ing dotfiles repo from Github"
