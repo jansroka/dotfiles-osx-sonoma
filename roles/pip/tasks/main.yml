@@ -1,13 +1,13 @@
 ---
 - name: Install and upgrade pip
-  pip:
+  ansible.builtin.pip:
     name: pip
     extra_args: --upgrade
     executable: pip3
   tags: pip
 
 - name: Get all currently installed pip modules
-  ansible.builtin.shell: "set -o pipefail && pip list | tail -n +3 | awk '{ print $1 }'"
+  ansible.builtin.shell: "set -o pipefail && pip3 list | tail -n +3 | awk '{ print $1 }'"
   register: pip_installedmodules
   changed_when: false
   tags: pip
@@ -16,12 +16,14 @@
   ansible.builtin.pip:
     name: pip
     extra_args: --upgrade
+    executable: pip3
   tags: pip
 
 - name: Install pip modules (skip if already installed)
   ansible.builtin.pip:
     name: "{{ item }}"
     state: present
+    executable: pip3
   loop: "{{ pip_default_modules }}"
   when: item not in pip_installedmodules.stdout
   tags: pip
@@ -36,6 +38,7 @@
   ansible.builtin.pip:
     name: "{{ item }}"
     extra_args: --upgrade
+    executable: pip3
   with_items: "{{ pip_outdatedmodules.stdout_lines }}"
   register: pip_pkg_result
   until: pip_pkg_result is success
