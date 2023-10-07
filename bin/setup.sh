@@ -23,6 +23,10 @@ if [[ ! -x /usr/local/bin/brew ]]; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
+# add homebrew to $PATH
+(echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> ~/.zprofile
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # install ansible
 if [[ ! -x /usr/local/bin/ansible ]]; then
     echo "[i] Install Ansible"
