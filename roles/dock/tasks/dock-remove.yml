@@ -2,7 +2,6 @@
 - name: "Remove all dock items"
   ansible.builtin.shell: "dockutil --remove all --no-restart"
   become: true
-  when: dock_item_exists.rc  == 0
   notify:
     - Restart Dock
   tags: dock
