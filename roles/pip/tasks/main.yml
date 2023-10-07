@@ -29,7 +29,7 @@
   tags: pip
 
 - name: Get all currently installed and outdated pip modules
-  ansible.builtin.shell: "set -o pipefail && pip list --outdated | tail -n +3 | awk '{ print $1 }'"
+  ansible.builtin.shell: "set -o pipefail && pip3 list --outdated | tail -n +3 | awk '{ print $1 }'"
   register: pip_outdatedmodules
   changed_when: false
   tags: pip
