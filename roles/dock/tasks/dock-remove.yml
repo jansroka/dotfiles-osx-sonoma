@@ -9,7 +9,7 @@
   tags: dock
 
 - name: "Ensure this Dock item is removed: {{ item }}"
-  ansible.builtin.shell: "dockutil --remove '{{ item }}' --no-restart"
+  ansible.builtin.shell: "dockutil --remove {{ item }} --no-restart"
   become: true
   when: dock_item_exists.rc  == 0
   notify:
