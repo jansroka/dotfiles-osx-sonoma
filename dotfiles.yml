@@ -7,8 +7,6 @@
       tags: brew
     - role: dock
       tags: dock
-    - role: docker
-      tags: docker
     - role: duti
       tags: duti
     - role: gem
@@ -29,3 +27,5 @@
       tags: sublimetext
     - role: symlinks
       tags: symlinks
+    - role: docker
+      tags: docker
