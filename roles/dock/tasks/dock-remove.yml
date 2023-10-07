@@ -2,4 +2,5 @@
 - name: "Remove all dock items"
   ansible.builtin.shell: "dockutil --remove all"
   become: true
+  become_user: jan
   tags: dock
