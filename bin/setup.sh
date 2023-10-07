@@ -39,7 +39,10 @@ if [[ ! -d ~/Code/Private/dotfiles/ ]]; then
     git clone https://github.com/jansroka/dotfiles.git ~/Code/Private/dotfiles/
 fi
 
-cd Code/Private/dotfiles/
+# Make sure we cd into the dotfiles directory
+# See https://stackoverflow.com/questions/255414/why-cant-i-change-directories-using-cd-in-a-script
+cd ~/Code/Private/dotfiles/
+$SHELL
 
 echo "[i] Git pull'ing dotfiles repo from Github"
 git pull origin master
