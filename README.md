@@ -12,33 +12,33 @@ Previous versions of this repo (archived) can be found here:
 
 ## Available ansible roles
 - brew
-	- configurdes homebrew includings casks & Microsoft Office (runtime: a few minutes)
+	- configurdes homebrew includings casks & Microsoft Office
 - dock
-	- configure your OSX dock (runtime: < 1 min)
+	- configure your OSX dock
 - docker
-	- purges dangling and unnecessary images, containers, images (runtime: ca. 1 min)
+	- purges dangling and unnecessary images, containers, images
 - duti
-	- set default app associations via ```duti``` (runtime: < 1 min)
+	- set default app associations via ```duti```
 - gem
-	- set up and maintain my default gems (runtime: 1 min)
+	- set up and maintain my default gems
 - hazel
-	- ensure basic Hazel.app settings (runtime: seconds)
+	- ensure basic Hazel.app settings
 - iterm
-	- ensure our own preferences file is used (runtime: seconds)
+	- ensure our own preferences file is used
 - maintenance
-	- runs a few maintenance tasks like repairPermissions, verifyVolume (runtime: several minutes)
+	- runs a few maintenance tasks like repairPermissions, verifyVolume
 - mas
-	- takes care of apps installed via Mac App Store (runtime: 1 min)
+	- takes care of apps installed via Mac App Store
 - npm
-	- install the few global npm packages that I use (runtime: a few secs)
+	- install the few global npm packages that I use
 - osx
-	- set lots of defaults for OSX and OSX apps (runtime: < 1 min)
+	- set lots of defaults for OSX and OSX apps
 - pip
-	- install and maintain pip modules (runtime: < 1 min)
+	- install and maintain pip modules
 - sublime-text
-	- install via brew cask & symlink (runtime:  < 1 min)
+	- install via brew cask & symlink preferences
 - symlinks
-	- softlink a bunch of config files in to ```~/``` (runtime: seconds)
+	- softlink a bunch of config files in to ```~/```
 
 ## Getting started
 You’ll need the following dependencies before getting started.
