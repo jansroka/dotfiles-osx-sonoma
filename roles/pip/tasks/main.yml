@@ -1,12 +1,9 @@
 ---
-- name: Ensure ansible role for easy_install is installed
-  ansible.builtin.shell: "ansible-galaxy collection install community.general"
-  tags: pip
-
-- name: Install or update pip
-  community.general.easy_install:
+- name: Install and upgrade pip
+  pip:
     name: pip
-    state: latest
+    extra_args: --upgrade
+    executable: pip3
   tags: pip
 
 - name: Get all currently installed pip modules
