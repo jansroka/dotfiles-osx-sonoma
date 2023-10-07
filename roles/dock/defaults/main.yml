@@ -18,7 +18,12 @@ dock_items_remove:
  - Mail
  - Launchpad
  - Notes
- - 'System Preferences'
+ - 'System Settings'
+ - Keynote
+ - Pages
+ - Keynote
+ - Numbers
+ - Freeform
 
 # Dock items to add. `pos` parameter is optional and will place the Dock item
 # in a particular position in the Dock.
