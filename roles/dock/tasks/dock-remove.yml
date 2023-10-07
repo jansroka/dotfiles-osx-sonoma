@@ -13,5 +13,5 @@
   become: true
   when: dock_item_exists.rc  == 0
   notify:
-    - restart dock
+    - Restart Dock
   tags: dock
