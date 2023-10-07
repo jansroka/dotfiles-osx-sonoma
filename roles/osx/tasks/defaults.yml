@@ -57,24 +57,26 @@
     - Kill Finder
   tags: osx, finder
 
-- name: Set Safari settings
-  community.general.osx_defaults: domain=com.apple.Safari key={{ item.key }} type={{ item.type }} value={{ item.value }}
-  with_items:
-    # Show the full URL in the address bar (note: this still hides the scheme)
-    - {key: "ShowFullURLInSmartSearchField", type: "bool", value: "true"}
-    # Prevent Safari from opening ‘safe’ files automatically after downloading
-    - {key: "AutoOpenSafeDownloads", type: "bool", value: "false"}
-    # Allow hitting the Backspace key to go to the previous page in history
-    - {key: "com.apple.Safari.ContentPageGroupIdentifier.WebKit2BackspaceKeyNavigationEnabled", type: "bool", value: "true"}
-    # Enable Safari’s debug menu
-    - {key: "IncludeInternalDebugMenu", type: "bool", value: "true"}
-    # Enable the Develop menu and the Web Inspector in Safari
-    - {key: "IncludeDevelopMenu", type: "bool", value: "true"}
-    - {key: "WebKitDeveloperExtrasEnabledPreferenceKey", type: "bool", value: "true"}
-    - {key: "com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled", type: "bool", value: "true"}
-  notify:
-    - Kill Safari
-  tags: osx, safari
+# Commented because this currently does not work on OSX Sonoma
+#
+# - name: Set Safari settings
+#   community.general.osx_defaults: domain=com.apple.Safari key={{ item.key }} type={{ item.type }} value={{ item.value }}
+#   with_items:
+#     # Show the full URL in the address bar (note: this still hides the scheme)
+#     - {key: "ShowFullURLInSmartSearchField", type: "bool", value: "true"}
+#     # Prevent Safari from opening ‘safe’ files automatically after downloading
+#     - {key: "AutoOpenSafeDownloads", type: "bool", value: "false"}
+#     # Allow hitting the Backspace key to go to the previous page in history
+#     - {key: "com.apple.Safari.ContentPageGroupIdentifier.WebKit2BackspaceKeyNavigationEnabled", type: "bool", value: "true"}
+#     # Enable Safari’s debug menu
+#     - {key: "IncludeInternalDebugMenu", type: "bool", value: "true"}
+#     # Enable the Develop menu and the Web Inspector in Safari
+#     - {key: "IncludeDevelopMenu", type: "bool", value: "true"}
+#     - {key: "WebKitDeveloperExtrasEnabledPreferenceKey", type: "bool", value: "true"}
+#     - {key: "com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled", type: "bool", value: "true"}
+#   notify:
+#     - Kill Safari
+#   tags: osx, safari
 
 - name: Set global settings
   community.general.osx_defaults: domain=NSGlobalDomain key={{ item.key }} type={{ item.type }} value={{ item.value }}
@@ -189,23 +191,25 @@
     - {domain: "com.apple.ImageCapture", key: "disableHotPlug", type: "bool", value: "true"}
   tags: osx, other-settings
 
-- name: Set some other settings (with sudo)
-  community.general.osx_defaults: domain={{ item.domain }} key={{ item.key }} type={{ item.type }} value={{ item.value }}
-  with_items:
-    # Set LoginwindowText
-    - {domain: "/Library/Preferences/com.apple.loginwindow", key: "LoginwindowText", type: "string", value: "{{ login_window_text }}"}
-    # Make sure there is no password hint set.
-    - {domain: "/Library/Preferences/com.apple.loginwindow", key: "RetriesUntilHint", type: "int", value: 0}
-    # Disable IR remote control
-    - {domain: "/Library/Preferences/com.apple.driver.AppleIRController", key: "DeviceEnabled", type: "bool", value: "false"}
-    # Enable Firewall. 0 = off, 1 = specific services, 2 = essential services
-    - {domain: "/Library/Preferences/com.apple.alf", key: "globalstate", type: "int", value: "2"}
-    # Disable the captive portal window
-    - {domain: "/Library/Preferences/SystemConfiguration/com.apple.captive.control", key: "Active", type: "bool", value: "false"}
-    # Make sure we are _not_ using dark mode
-    - {domain: "/Library/Preferences/.GlobalPreferences.plist ", key: "AppleInterfaceTheme", type: "string", value: "Light"}
-  become: true
-  tags: osx, sudo-settings
+# Commented out because this is not workin on OSX Sonoma
+#
+# - name: Set some other settings (with sudo)
+#   community.general.osx_defaults: domain={{ item.domain }} key={{ item.key }} type={{ item.type }} value={{ item.value }}
+#   with_items:
+#     # Set LoginwindowText
+#     - {domain: "/Library/Preferences/com.apple.loginwindow", key: "LoginwindowText", type: "string", value: "{{ login_window_text }}"}
+#     # Make sure there is no password hint set.
+#     - {domain: "/Library/Preferences/com.apple.loginwindow", key: "RetriesUntilHint", type: "int", value: 0}
+#     # Disable IR remote control
+#     - {domain: "/Library/Preferences/com.apple.driver.AppleIRController", key: "DeviceEnabled", type: "bool", value: "false"}
+#     # Enable Firewall. 0 = off, 1 = specific services, 2 = essential services
+#     - {domain: "/Library/Preferences/com.apple.alf", key: "globalstate", type: "int", value: "2"}
+#     # Disable the captive portal window
+#     - {domain: "/Library/Preferences/SystemConfiguration/com.apple.captive.control", key: "Active", type: "bool", value: "false"}
+#     # Make sure we are _not_ using dark mode
+#     - {domain: "/Library/Preferences/.GlobalPreferences.plist ", key: "AppleInterfaceTheme", type: "string", value: "Light"}
+#   become: true
+#   tags: osx, sudo-settings
 
 # Hot corners
 # from https://gist.github.com/Moscarda/1abb40b39c6636d4f022cbfbd90cf890
