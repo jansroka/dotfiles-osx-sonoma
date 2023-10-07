@@ -1,8 +1,7 @@
 ---
 # from https://github.com/geerlingguy/ansible-collection-mac
 - name: "Check the current Dock position of {{ item.name | default(item) }}."
-  ansible.builtin.command:
-    cmd: dockutil --find '{{ item.name | default(item) }}'
+  ansible.builtin.shell: "dockutil --find '{{ item.name | default(item) }}'"
   register: dock_item_position
   failed_when: '"was not found" in dock_item_position.stdout'
   changed_when: false
@@ -12,6 +11,7 @@
     dock_current_position: "{{ dock_item_position | regex_replace('^.*slot (.*) in.*$', '\\1') }}"
 
 - name: Move dock item to the correct position.
-  ansible.builtin.command:
-    cmd: dockutil --move '{{ item.name | default(item) }}' --position '{{ item.pos }}'
+  ansible.builtin.shell: "dockutil --move '{{ item.name | default(item) }}' --position '{{ item.pos }}'"
+  become: true
+  become_user: jan
   when: dock_current_position|int != item.pos|int
