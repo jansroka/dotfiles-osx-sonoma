@@ -40,6 +40,7 @@ if [[ ! -d ~/Code/Private/dotfiles/ ]]; then
 fi
 
 cd ~/Code/Private/dotfiles/
+
 echo "[i] Git pull'ing dotfiles repo from Github"
 git pull origin master
 
