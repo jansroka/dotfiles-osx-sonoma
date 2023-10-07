@@ -1,11 +1,12 @@
 ---
-- name: Ensure Pip is installed by running `python3 -m ensurepip`
-  ansible.builtin.shell: "python3 -m ensurepip"
+- name: Install or update pip
+  community.general.easy_install:
+    name: pip
+    state: latest
   tags: pip
 
 - name: Get all currently installed pip modules
   ansible.builtin.shell: "set -o pipefail && pip list | tail -n +3 | awk '{ print $1 }'"
-    executable: pip3
   register: pip_installedmodules
   changed_when: false
   tags: pip
@@ -14,14 +15,12 @@
   ansible.builtin.pip:
     name: pip
     extra_args: --upgrade
-    executable: pip3
   tags: pip
 
 - name: Install pip modules (skip if already installed)
   ansible.builtin.pip:
     name: "{{ item }}"
     state: present
-    executable: pip3
   loop: "{{ pip_default_modules }}"
   when: item not in pip_installedmodules.stdout
   tags: pip
@@ -36,7 +35,6 @@
   ansible.builtin.pip:
     name: "{{ item }}"
     extra_args: --upgrade
-    executable: pip3
   with_items: "{{ pip_outdatedmodules.stdout_lines }}"
   register: pip_pkg_result
   until: pip_pkg_result is success
