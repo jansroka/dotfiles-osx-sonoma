@@ -45,11 +45,11 @@ cd ~/Code/Private/dotfiles/
 $SHELL
 
 echo "[i] Git pull'ing dotfiles repo from Github"
-git pull origin master
+cd ~/Code/Private/dotfiles/ && git pull origin main
 
 # Run main playbook
 echo "[i] Run Playbook"
-time ansible-playbook -i hosts dotfiles.yml -v
+cd ~/Code/Private/dotfiles/ && time ansible-playbook -i hosts dotfiles.yml -v
 
 echo "[i] Done."
 exit 0
