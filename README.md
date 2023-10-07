@@ -1,15 +1,5 @@
-# Archive Repository
-
-This repo served me well for the brief time I used OSX Ventura in 2023. But since I have moved on from OSX Ventura to OSX Sonoma in October 2023, this repo is now archived. This archived state is a snapshot of the repo as it was when I last used it. It is not maintained anymore.
-
-Last used version of OSX Ventura, that I used with these dotfiles, was 13.6 (released on Sep 21, 2023).
-
-My current dotfiles are located at [https://github.com/jansroka/dotfiles](https://github.com/jansroka/dotfiles).
-
-Original README.md follows below.
-
 # dotfiles
-These are my dotfiles for OSX Ventura. There are many like them, but these ones are mine.
+These are my dotfiles for OSX Sonoma. There are many like them, but these ones are mine.
 
 ## Features
 - super simple setup
