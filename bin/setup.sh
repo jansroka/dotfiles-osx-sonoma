@@ -7,6 +7,9 @@ sudo -v
 # move to ~ if we are not there yet
 cd
 
+# Create our code & dotfiles directoy
+mkdir -p ~/Code/Private
+
 # install Command Line Tools
 if [[ ! -x /usr/bin/gcc ]]; then
   echo "[i] Install macOS Command Line Tools"
