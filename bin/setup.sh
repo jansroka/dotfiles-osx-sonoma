@@ -39,7 +39,7 @@ if [[ ! -d ~/Code/Private/dotfiles/ ]]; then
     git clone https://github.com/jansroka/dotfiles.git ~/Code/Private/dotfiles/
 fi
 
-cd ~/Code/Private/dotfiles/
+cd Code/Private/dotfiles/
 
 echo "[i] Git pull'ing dotfiles repo from Github"
 git pull origin master
