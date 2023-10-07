@@ -23,20 +23,19 @@
     - Kill Dock
   tags: dock
 
-- name: Remove configured Dock items.
-  ansible.builtin.include_tasks: dock-remove.yml
-  loop: "{{ dock_items_remove }}"
+- name: Remove all dock items
+  ansible.builtin.shell: "dockutil --remove all --no-restart"
+  become: true
+  become_user: jan
+  notify:
+    - Kill Dock
   tags: dock
 
-- name: Ensure required dock items exist.
-  ansible.builtin.include_tasks: dock-add.yml
+- name: Add our dock items
+  ansible.builtin.shell: "dockutil --add '{{ item.path }} --position {{ item.pos }} --no-restart'"
+  become: true
+  become_user: jan
   loop: "{{ dock_items_persist }}"
-  tags: dock
-
-- name: Ensure dock items are in correct position.
-  ansible.builtin.include_tasks: dock-position.yml
-  when:
-    - item.pos is defined
-    - item.pos > 0
-  loop: "{{ dock_items_persist }}"
+  notify:
+    - Kill Dock
   tags: dock

@@ -1,6 +1,0 @@
----
-- name: "Ensure this Dock item exists: {{ item.name | default(item) }}"
-  ansible.builtin.shell: "dockutil --add '{{ item.path }}'"
-  become: true
-  become_user: jan
-  tags: dock
