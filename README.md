@@ -1,6 +1,10 @@
 # dotfiles
 These are my dotfiles for OSX Sonoma. There are many like them, but these ones are mine.
 
+Previous versions of this repo (archived) can be found here:
+- [https://github.com/jansroka/dotfiles-osx-monterey](https://github.com/jansroka/dotfiles-osx-monterey)
+- [https://github.com/jansroka/dotfiles-osx-ventura](https://github.com/jansroka/dotfiles-osx-ventura)
+
 ## Features
 - super simple setup
 - uses ansible and is idempotent
