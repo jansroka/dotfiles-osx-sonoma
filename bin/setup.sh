@@ -8,7 +8,7 @@ sudo -v
 cd
 
 # Create our code & dotfiles directoy
-mkdir -p ~/Code/Private
+mkdir -p ~/Code/Private/dotfiles
 
 # install Command Line Tools
 if [[ ! -x /usr/bin/gcc ]]; then
