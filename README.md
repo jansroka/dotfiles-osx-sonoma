@@ -12,33 +12,33 @@ Previous versions of this repo (archived) can be found here:
 
 ## Available ansible roles
 - brew
-	- configurdes homebrew includings casks & Microsoft Office
+	- configures homebrew includings casks & Microsoft Office
 - dock
-	- configure your OSX dock
+	- configures your OSX dock
 - docker
 	- purges dangling and unnecessary images, containers, images
 - duti
-	- set default app associations via ```duti```
+	- sets default app associations via ```duti```
 - gem
-	- set up and maintain my default gems
+	- sets up and maintains my default gems
 - hazel
-	- ensure basic Hazel.app settings
+	- ensures basic Hazel.app settings
 - iterm
-	- ensure our own preferences file is used
+	- ensures our own preferences file is used
 - maintenance
 	- runs a few maintenance tasks like repairPermissions, verifyVolume
 - mas
 	- takes care of apps installed via Mac App Store
 - npm
-	- install the few global npm packages that I use
+	- installs the global npm packages that I use
 - osx
-	- set lots of defaults for OSX and OSX apps
+	- sets lots of defaults for OSX and OSX apps
 - pip
-	- install and maintain pip modules
+	- installs and maintains pip modules
 - sublime-text
-	- install via brew cask & symlink preferences
+	- installs sublime text via brew cask & symlinks preferences
 - symlinks
-	- softlink a bunch of config files in to ```~/```
+	- softlinks a bunch of config files in to ```~/```
 
 ## Getting started
 You’ll need the following dependencies before getting started.
@@ -67,7 +67,7 @@ Make sure to read the code before running.
 time ansible-playbook dotfiles.yml -v --ask-become-pass
 ```
 
-## How to run the update playbook only for softwareupdates
+## How to run the update playbook only for software updates
 Run this:
 ```
 time ansible.cfg ansible-playbook update.yml -v --ask-become-pass
