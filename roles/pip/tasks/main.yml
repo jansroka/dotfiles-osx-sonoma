@@ -1,4 +1,9 @@
 ---
+- name: Ensure Pip is installed.
+  package:
+    name: python3-pip
+    state: present
+
 - name: Get all currently installed pip modules
   ansible.builtin.shell: "set -o pipefail && pip list | tail -n +3 | awk '{ print $1 }'"
   register: pip_installedmodules
