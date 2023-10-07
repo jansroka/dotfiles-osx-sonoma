@@ -1,7 +1,5 @@
 ---
 - name: "Remove all dock items"
-  ansible.builtin.shell: "dockutil --remove all --no-restart"
+  ansible.builtin.shell: "dockutil --remove all"
   become: true
-  notify:
-    - Restart Dock
   tags: dock
