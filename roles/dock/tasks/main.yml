@@ -32,7 +32,7 @@
   tags: dock
 
 - name: Add our dock items
-  ansible.builtin.shell: "dockutil --add '{{ item.path }}' --position {{ item.pos }} --no-restart'"
+  ansible.builtin.shell: "dockutil --add '{{ item.path }}' --position {{ item.pos }} --no-restart"
   become: true
   become_user: jan
   loop: "{{ dock_items_persist }}"
