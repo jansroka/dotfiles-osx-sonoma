@@ -1,6 +1,10 @@
 ---
 - name: Import base tasks
   ansible.builtin.import_tasks: base.yml
+  become: true
+  become_user: jan
 
 - name: Import defaults tasks
   ansible.builtin.import_tasks: defaults.yml
+  become: true
+  become_user: jan
