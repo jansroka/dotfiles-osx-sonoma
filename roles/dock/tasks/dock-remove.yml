@@ -1,15 +1,14 @@
 ---
 # from https://github.com/geerlingguy/ansible-collection-mac
 - name: "See if this item is in the Dock: {{ item }}"
-  ansible.builtin.command:
-    cmd: dockutil --find '{{ item }}'
+  ansible.builtin.shell: "dockutil --find '{{ item }}'"
   register: dock_item_exists
   changed_when: false
   failed_when: false
-  tags: ['dock']
+  check_mode: no
+  tags: dock
 
 - name: "Ensure this Dock item is removed: {{ item }}"
-  ansible.builtin.command:
-    cmd: dockutil --remove '{{ item }}'
+  ansible.builtin.shell: "dockutil --remove '{{ item }}'"
   when: dock_item_exists.rc  == 0
-  tags: ['dock']
+  tags: dock
