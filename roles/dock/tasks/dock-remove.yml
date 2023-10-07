@@ -5,9 +5,7 @@
     cmd: dockutil --find '{{ item }}'
   register: dock_item_exists
   changed_when: false
-  failed_when: >
-    "No such file or directory" in dock_item_exists.stdout
-    or "command not found" in dock_item_exists.stdout
+  failed_when: false
   tags: ['dock']
 
 - name: "Ensure this Dock item is removed: {{ item }}"

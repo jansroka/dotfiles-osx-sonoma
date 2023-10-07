@@ -4,8 +4,8 @@
   ansible.builtin.command: "dockutil --find '{{ item.name }}'"
   register: dock_item_exists
   failed_when: >
-    "No such file or directory" in dock_item_exists.stdout
-    or "command not found" in dock_item_exists.stdout
+    "Find failed for" in dock_item_exists.stdout
+    or "was not found" in dock_item_exists.stdout
   changed_when: false
   tags: dock
 

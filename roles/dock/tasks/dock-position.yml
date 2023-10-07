@@ -4,7 +4,7 @@
   ansible.builtin.command:
     cmd: dockutil --find '{{ item.name | default(item) }}'
   register: dock_item_position
-  failed_when: '"command not found" in dock_item_position.stdout'
+  failed_when: '"was not found" in dock_item_position.stdout'
   changed_when: false
 
 - name: Get current dock item position from output.
