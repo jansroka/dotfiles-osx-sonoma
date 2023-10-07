@@ -1,8 +1,7 @@
 ---
-- name: Ensure Pip is installed.
-  package:
-    name: python-pip
-    state: present
+- name: Ensure Pip is installed by running `python3 -m ensurepip`
+  ansible.builtin.shell: "python3 -m ensurepip"
+  tags: pip
 
 - name: Get all currently installed pip modules
   ansible.builtin.shell: "set -o pipefail && pip list | tail -n +3 | awk '{ print $1 }'"
