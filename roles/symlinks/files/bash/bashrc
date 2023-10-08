@@ -49,5 +49,15 @@ cdnvm() {
     fi
 }
 
-alias cd='cdnvm'
-cdnvm "$PWD" || exit
+
+# Only run this if we are in a bash shell, not in a zsh
+if [ -z ${BASH_VERSION} ]; then
+	# $BASH is not set, therefore we are probably in a csh
+	# echo "not in a bash"
+else
+	# $BASH is set
+	# echo "in a bash"
+	alias cd='cdnvm'
+	cdnvm "$PWD" || exit
+fi
+
