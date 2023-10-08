@@ -13,7 +13,7 @@ unset file;
 # Only run this if we are in a bash shell, not in a zsh
 if [ -z ${BASH_VERSION} ]; then
         # $BASH is not set, therefore we are probably in a csh
-        # echo "not in a bash"
+        echo "We are not in a bash"
 else
 	# We are in a bash
 	# Case-insensitive globbing (used in pathname expansion)

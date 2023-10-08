@@ -11,7 +11,8 @@ function parse_git_branch {
 # Only run this if we are in a bash shell, not in a zsh
 if [ -z ${BASH_VERSION} ]; then
 	# $BASH is not set, therefore we are probably in a csh
-	# echo "not in a bash"	
+	# echo "not in a bash"
+	export PS1=""
 else
 	# $BASH is set
 	# echo "in a bash"
