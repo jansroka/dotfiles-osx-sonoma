@@ -2,6 +2,7 @@
 	name = Jan Sroka
 	email = github@jansroka.com
 	signingkey = 08ECE799
+
 [credential]
 	helper = osxkeychain
 	helper = /usr/local/share/gcm-core/git-credential-manager
