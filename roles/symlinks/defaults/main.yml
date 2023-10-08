@@ -17,3 +17,5 @@ symlinks:
   - {src: "bash/prompt", dest: "~/.prompt"}
   # nano
   - {src: "nano/nanorc", dest: "~/.nanorc"}
+  # zsh
+  - {src: "zsh/zshrc", dest: "~/.zshrc"}
