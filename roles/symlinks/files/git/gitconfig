@@ -1,11 +1,12 @@
 [user]
 	name = Jan Sroka
-	email = github@jansroka.com
+	email = jansroka@github.com
 	signingkey = 8EC65BAC
+	signingkey = AB2B57CB!
 
 [credential]
 	helper = osxkeychain
-	helper = 
+	helper =
 	helper = /usr/local/share/gcm-core/git-credential-manager
 
 [core]
@@ -13,7 +14,7 @@
 
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 
 [mergetool "sourcetree"]
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
