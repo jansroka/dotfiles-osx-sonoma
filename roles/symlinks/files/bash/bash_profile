@@ -10,14 +10,21 @@ unset file;
 # Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
 [ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2- | tr ' ' '\n')" scp sftp ssh;
 
-# Case-insensitive globbing (used in pathname expansion)
-shopt -s nocaseglob;
+# Only run this if we are in a bash shell, not in a zsh
+if [ -z ${BASH_VERSION} ]; then
+        # $BASH is not set, therefore we are probably in a csh
+        # echo "not in a bash"
+else
+	# We are in a bash
+	# Case-insensitive globbing (used in pathname expansion)
+	shopt -s nocaseglob
 
-# Append to the Bash history file, rather than overwriting it
-shopt -s histappend;
+	# Append to the Bash history file, rather than overwriting it
+	shopt -s histappend
 
-# Autocorrect typos in path names when using `cd`
-shopt -s cdspell;
+	# Autocorrect typos in path names when using `cd`
+	shopt -s cdspell
+fi
 
 # init rbenv for ruby
 eval "$(rbenv init -)"
