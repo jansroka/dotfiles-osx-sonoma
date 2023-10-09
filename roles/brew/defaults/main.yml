@@ -39,7 +39,9 @@ brew_packages:
   - python@3.9
   - rbenv
   - rsync
-  - ruby
+  # Don't install ruby from homebrew
+  # We will use rbenv for this
+  # - ruby
   - ruby-build
   - shellcheck
   - stripe/stripe-cli/stripe
