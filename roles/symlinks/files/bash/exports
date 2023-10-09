@@ -49,24 +49,25 @@ export MANPAGER='less -X';
 export PATH=/Users/jan/.rbenv/shims:$PATH
 export optflags="-Wno-error=implicit-function-declaration"
 export CFLAGS="-Wno-error=implicit-function-declaration"
-export LDFLAGS="-L/usr/local/opt/libffi/lib $LDFLAGS"
-export CPPFLAGS="-I/usr/local/opt/libffi/include $CPPFLAGS"
-export PKG_CONFIG_PATH="/usr/local/opt/libffi/lib/pkgconfig:$PKG_CONFIG_PATH"
-export CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+export LDFLAGS="-L$(brew --prefix)/opt/libffi/lib $LDFLAGS"
+export CPPFLAGS="-I$(brew --prefix)/opt/libffi/include $CPPFLAGS"
+export PKG_CONFIG_PATH="$(brew --prefix)/opt/libffi/lib/pkgconfig:$PKG_CONFIG_PATH"
+export CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@3)"
 
 # ruby-build
-export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1) --with-readline-dir=$(brew --prefix readline) --with-libyaml-dir=$(brew --prefix libyaml) --with-zlib-dir=$(brew --prefix zlib)"
+# Since we are using ruby 3.1 or higher we need to use openssl@3
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@3) --with-readline-dir=$(brew --prefix readline) --with-libyaml-dir=$(brew --prefix libyaml) --with-zlib-dir=$(brew --prefix zlib)"
 
 # ruby - readline needs this
-export LDFLAGS="-L/usr/local/opt/readline/lib $LDFLAGS"
-export CPPFLAGS="-I/usr/local/opt/readline/include $CPPFLAGS"
-export PKG_CONFIG_PATH="/usr/local/opt/readline/lib/pkgconfig:$PKG_CONFIG_PATH"
+export LDFLAGS="-L$(brew --prefix)/opt/readline/lib $LDFLAGS"
+export CPPFLAGS="-I$(brew --prefix)/opt/readline/include $CPPFLAGS"
+export PKG_CONFIG_PATH="$(brew --prefix)/opt/readline/lib/pkgconfig:$PKG_CONFIG_PATH"
 
 # ruby  - openssl needs this
-export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib $LDFLAGS"
-export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include $CPPFLAGS"
-export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig:$PKG_CONFIG_PATH"
-export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+export LDFLAGS="-L$(brew --prefix)/opt/openssl@1.1/lib $LDFLAGS"
+export CPPFLAGS="-I$(brew --prefix)/opt/openssl@1.1/include $CPPFLAGS"
+export PKG_CONFIG_PATH="$(brew --prefix)/opt/openssl@1.1/lib/pkgconfig:$PKG_CONFIG_PATH"
+export PATH="$(brew --prefix)/opt/openssl@1.1/bin:$PATH"
 
 #pyenv for python
 export PYENV_ROOT="$HOME/.pyenv"
@@ -75,15 +76,15 @@ export PATH="$HOME/.local/bin:$PATH"
 eval "$(pyenv init --path)"
 
 # postgres
-export PATH="/usr/local/opt/postgresql@15/bin:$PATH"
-export LDFLAGS="-L/usr/local/opt/postgresql@15/lib $LDFLAGS"
-export CPPFLAGS="-I/usr/local/opt/postgresql@15/include $CPPFLAGS"
-export PKG_CONFIG_PATH="/usr/local/opt/postgresql@15/lib/pkgconfig"
+export PATH="$(brew --prefix)/opt/postgresql@15/bin:$PATH"
+export LDFLAGS="-L$(brew --prefix)/opt/postgresql@15/lib $LDFLAGS"
+export CPPFLAGS="-I$(brew --prefix)/opt/postgresql@15/include $CPPFLAGS"
+export PKG_CONFIG_PATH="$(brew --prefix)/opt/postgresql@15/lib/pkgconfig"
 # libq
-export PATH="/usr/local/opt/libpq/bin:$PATH"
-export LDFLAGS="-L/usr/local/opt/libpq/lib"
-export CPPFLAGS="-I/usr/local/opt/libpq/include"
-export PKG_CONFIG_PATH="/usr/local/opt/libpq/lib/pkgconfig"
+export PATH="$(brew --prefix)/opt/libpq/bin:$PATH"
+export LDFLAGS="-L$(brew --prefix)/opt/libpq/lib"
+export CPPFLAGS="-I$(brew --prefix)/opt/libpq/include"
+export PKG_CONFIG_PATH="$(brew --prefix)/opt/libpq/lib/pkgconfig"
 
 # Fix Ansible
 export ANSIBLE_PYTHON_INTERPRETER="$(which python)"
@@ -101,7 +102,7 @@ export NODE_REPL_MODE='sloppy';
 export PATH="$PATH:./node_modules/.bin"
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "$(brew --prefix)/opt/nvm/nvm.sh" ] && \. "$(brew --prefix)/opt/nvm/nvm.sh"  # This loads nvm
 
 # remove duplicate PATH entries
 # and finally export one last time
