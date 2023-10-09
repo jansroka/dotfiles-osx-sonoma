@@ -27,5 +27,6 @@
       tags: sublimetext
     - role: symlinks
       tags: symlinks
+    # docker role needs pip, therfore install after pip role
     - role: docker
       tags: docker
