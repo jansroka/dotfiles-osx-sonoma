@@ -25,7 +25,7 @@ fi
 
 # add homebrew to $PATH
 (echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> ~/.zprofile
-eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$($(brew --prefix)/bin/brew shellenv)"
 
 # install ansible
 if [[ ! -x /usr/local/bin/ansible ]]; then
