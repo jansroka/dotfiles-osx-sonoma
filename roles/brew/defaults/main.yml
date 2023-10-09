@@ -20,6 +20,7 @@ brew_packages:
   - duti
   - exiftool
   - git
+  - gmp # rbenv/ruby requirement
   - gnupg
   - gzip
   - heroku/brew/heroku
@@ -27,6 +28,7 @@ brew_packages:
   - jq
   - less
   - libffi
+  - libyaml # rbenv/ruby requirement
   - lotyp/formulae/dockutil
   - mas
   - nano
@@ -34,9 +36,11 @@ brew_packages:
   - node
   - nvm
   - openssh
+  - openssl@3 # rbenv/ruby requirement
   - pre-commit
   - pyenv
   - python@3.9
+  - readline # rbenv/ruby requirement
   - rbenv
   - rsync
   # Don't install ruby from homebrew
