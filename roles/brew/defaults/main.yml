@@ -28,6 +28,7 @@ brew_packages:
   - jq
   - less
   - libffi
+  - libpq # postgres requirement
   - libyaml # rbenv/ruby requirement
   - lotyp/formulae/dockutil
   - mas
