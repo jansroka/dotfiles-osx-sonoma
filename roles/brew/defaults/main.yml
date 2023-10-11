@@ -70,6 +70,7 @@ brew_cask_packages:
   - element
   - fawkes
   - firefox
+  - fujitsu-scansnap-home
   - git-credential-manager-core
   - github
   - google-chrome
