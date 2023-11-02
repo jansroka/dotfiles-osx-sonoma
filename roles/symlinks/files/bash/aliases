@@ -84,6 +84,13 @@ alias veracrypt='/Applications/VeraCrypt.app/Contents/MacOS/Veracrypt'
 alias gst='clear && git status'
 alias gcm='git checkout main'
 
+# Set these aliases only in zsh
+if [ -z ${BASH_VERSION} ]; then
+	# $BASH is not set, therefore we are probably in a zsh
+	# echo "not in a bash" > /dev/null
+    alias history='history -i'
+fi
+
 # daito docker
 alias daitoapp='cd ~/Code/Daito/app'
 alias daitoattach='cd ~/Code/Daito/app && d attach web'
