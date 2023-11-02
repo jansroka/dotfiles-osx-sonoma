@@ -3,19 +3,19 @@ symlinks_files_src_dir: "~/Code/Private/dotfiles/roles/symlinks/files"
 
 symlinks:
   # wget
-  - {src: "wget/wget-hsts", dest: "~/.wget-hsts"}
+  - { src: "wget/wget-hsts", dest: "~/.wget-hsts" }
   # gem
-  - {src: "gem/gemrc", dest: "~/.gemrc"}
+  - { src: "gem/gemrc", dest: "~/.gemrc" }
   # git
-  - {src: "git/gitconfig", dest: "~/.gitconfig"}
-  - {src: "git/gitignore_global", dest: "~/.gitignore_global"}
+  - { src: "git/gitconfig", dest: "~/.gitconfig" }
+  - { src: "git/gitignore_global", dest: "~/.gitignore_global" }
   # bash
-  - {src: "bash/aliases", dest: "~/.aliases"}
-  - {src: "bash/bash_profile", dest: "~/.bash_profile"}
-  - {src: "bash/bashrc", dest: "~/.bashrc"}
-  - {src: "bash/exports", dest: "~/.exports"}
-  - {src: "bash/prompt", dest: "~/.prompt"}
+  - { src: "bash/aliases", dest: "~/.aliases" }
+  - { src: "bash/bash_profile", dest: "~/.bash_profile" }
+  - { src: "bash/bashrc", dest: "~/.bashrc" }
+  - { src: "bash/exports", dest: "~/.exports" }
+  - { src: "bash/prompt", dest: "~/.prompt" }
   # nano
-  - {src: "nano/nanorc", dest: "~/.nanorc"}
+  - { src: "nano/nanorc", dest: "~/.nanorc" }
   # zsh
-  - {src: "zsh/zshrc", dest: "~/.zshrc"}
+  - { src: "zsh/zshrc", dest: "~/.zshrc" }
