@@ -117,3 +117,6 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 
 # Needed for GPG and e.g. signing commits
 export GPG_TTY=$(tty)
+
+# format `time` output in zsh
+export TIMEFMT=$'\nTIME NEEDED:\nreal\t%E\nuser\t%U\nsys\t%S'
