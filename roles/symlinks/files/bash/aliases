@@ -92,22 +92,12 @@ if [ -z ${BASH_VERSION} ]; then
 fi
 
 # daito docker
-alias daitoapp='cd ~/Code/Daito/app'
-alias daitoattach='cd ~/Code/Daito/app && d attach web'
-alias daitobash='cd ~/Code/Daito/app && dcr web bash'
-alias daitoconsole='cd ~/Code/Daito/app && dcr web rails c'
-alias daitodown='cd ~/Code/Daito/app && dcd'
-alias daitotest='cd ~/Code/Daito/app && dcr web ./scripts/fluffy.sh'
-alias daitoup='cd ~/Code/Daito/app && dcu'
-alias daitoupb='cd ~/Code/Daito/app && dcub'
-alias d="docker"
-alias dcb="docker compose build"
-alias dcd="docker compose down --remove-orphans && docker system prune --volumes -f"
-alias dce="docker compose exec"
+alias dcb="docker system prune -af > /dev/null && time docker compose build"
+alias dcd="time docker compose down --remove-orphans && docker system prune --volumes -f"
 alias dcr="docker compose run -it --rm"
-alias dcu="docker compose up"
-#alias dcub="docker image prune -af && docker buildx build -t daito-web:latest --force-rm --rm --pull=false -f Dockerfile.web . && docker compose up --build --force-recreate --remove-orphans"
-alias dcub="docker compose up --build --force-recreate"
+alias dcu="time docker compose up"
+alias dcub="docker system prune -af > /dev/null && time docker compose up --build --force-recreate --remove-orphans"
+alias daitotest="docker system prune -af > /dev/null && dcr web ./scripts/fluffy.sh"
 
 # vscode
 alias code='/Applications/Visual\ Studio\ Code.app/Contents/MacOS/Electron'
