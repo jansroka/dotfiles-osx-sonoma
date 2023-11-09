@@ -70,19 +70,13 @@ curl -L https://raw.github.com/jansroka/dotfiles/master/bin/setup.sh | bash
 
 Make sure to read the code before running.
 
-## How to run the whole thing for setup
+## How to run the whole thing for setup or maintenance
 
 ```
 time ansible-playbook dotfiles.yml -v --ask-become-pass
 ```
 
-## How to run the update playbook only for software updates
-
-Run this:
-
-```
-time ansible-playbook update.yml -v --ask-become-pass
-```
+This will install things if they are not installed yet. It will also update things if they are already installed.
 
 ## How to run the maintenance playbook
 
@@ -91,6 +85,8 @@ Run this:
 ```
 time ansible-playbook maintenance.yml -v --ask-become-pass
 ```
+
+This runs different tasks than the `dotfiles.yml` playbook.
 
 ## How to make changes to this repo // pre-commit hooks
 
