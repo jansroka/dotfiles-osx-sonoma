@@ -28,5 +28,6 @@
     - role: symlinks
       tags: symlinks
     # docker role needs pip, therfore install after pip role
-    - role: docker
-      tags: docker
+    # update: 2024-01-04: role commented out because of issues with my python setup
+    # - role: docker
+    #  tags: docker
