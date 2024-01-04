@@ -100,4 +100,5 @@
     /*"font_size": 19,*/
     /*"font_size": 19,*/
     /*"font_size": 32,*/
+    "index_files": true,
 }
