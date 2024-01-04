@@ -60,7 +60,9 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 brew install ansible
 ```
 
-## How to run with a one-liner
+## How to run this
+
+### ...as a one-liner, e.g. for initial setup
 
 Run this:
 
@@ -68,9 +70,11 @@ Run this:
 curl -L https://raw.github.com/jansroka/dotfiles/master/bin/setup.sh | bash
 ```
 
-Make sure to read the code before running.
+This sets up a few things and then runs `ansible-playbook -i hosts dotfiles.yml -v`.
 
-## How to run the whole thing for setup or maintenance
+### ...as a regular command via CLI
+
+Run this:
 
 ```
 time ansible-playbook dotfiles.yml -v --ask-become-pass
@@ -86,7 +90,7 @@ Run this:
 time ansible-playbook maintenance.yml -v --ask-become-pass
 ```
 
-This runs different tasks than the `dotfiles.yml` playbook.
+This runs different tasks than the `dotfiles.yml` playbook. It does stuff like spotlight DB rebuild, repair permissions, verify volume, etc.
 
 ## How to make changes to this repo // pre-commit hooks
 
