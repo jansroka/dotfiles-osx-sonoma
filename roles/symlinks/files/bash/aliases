@@ -83,6 +83,7 @@ alias veracrypt='/Applications/VeraCrypt.app/Contents/MacOS/Veracrypt'
 # git
 alias gst='clear && git status'
 alias gcm='git checkout main'
+alias gc='git checkout'
 
 # Set these aliases only in zsh
 if [ -z ${BASH_VERSION} ]; then
