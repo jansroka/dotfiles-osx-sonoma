@@ -112,12 +112,11 @@ alias dcu="docker compose up"
 alias dcub="time dcd && time docker compose up --build --force-recreate --remove-orphans"
 
 # Daito
-alias daitoapp='cd ~/Documents/Arbeit/Daito/Code/app'
-alias daitoattach='daitoapp && d attach web'
-alias daitobash='daitoapp && hashes && echo "STARTING \"bash\" FOR DAITO" && hashes && echo " " && dcr web bash'
-alias daitoconsole='daitoapp && dcr web rails c'
-alias daitopsql='daitoapp && dcr postgres psql "postgresql://daito:daito@postgres/daito_development"'
-alias daitotest='daitoapp && dcd && dcr web ./scripts/fluffy.sh'
+alias daitoattach='d attach web'
+alias daitobash='hashes && echo "STARTING \"bash\" FOR DAITO" && hashes && echo " " && dcr web bash'
+alias daitoconsole='dcr web rails c'
+alias daitopsql='dcr postgres psql "postgresql://daito:daito@postgres/daito_development"'
+alias daitotest='dcr web ./scripts/fluffy.sh'
 
 # vscode
 alias code='/Applications/Visual\ Studio\ Code.app/Contents/MacOS/Electron'
