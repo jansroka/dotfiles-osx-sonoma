@@ -92,13 +92,32 @@ if [ -z ${BASH_VERSION} ]; then
     alias history='history -i'
 fi
 
-# daito docker
-alias dcb="docker system prune -af > /dev/null && time docker compose build"
-alias dcd="time docker compose down --remove-orphans && docker system prune --volumes -f"
+# Generic
+alias hashes='echo "###############################"'
+
+# Docker
+alias d="docker"
+# reset docker, clean everything, but don't delete the build cache
+# and don't delete images that match certain terms
+# We use a function here, not an alias, since that simplifies character escapes
+dcd() { echo "### running docker compose down" && docker compose down --remove-orphans \
+		&& echo "### pruning docker images" && docker images -a | grep -v redis | grep -v chrome | grep -v postgres | grep -v IMAGE | awk '{print $3}' | xargs docker rmi \
+		&& echo "### pruning docker volumes" && docker volume ls | grep -v daito | grep -v 'VOLUME NAME' | awk '{print $2}' | xargs docker volume rm \
+		&& echo "### pruning docker containers" && docker container prune -f \
+		&& echo "### pruning docker networks" && docker network prune -f }
+alias dcb="time dcd && time docker compose build"
+alias dce="docker compose exec"
 alias dcr="docker compose run -it --rm"
-alias dcu="time docker compose up"
-alias dcub="docker system prune -af > /dev/null && time docker compose up --build --force-recreate --remove-orphans"
-alias daitotest="docker system prune -af > /dev/null && dcr web ./scripts/fluffy.sh"
+alias dcu="docker compose up"
+alias dcub="time dcd && time docker compose up --build --force-recreate --remove-orphans"
+
+# Daito
+alias daitoapp='cd ~/Documents/Arbeit/Daito/Code/app'
+alias daitoattach='daitoapp && d attach web'
+alias daitobash='daitoapp && hashes && echo "STARTING \"bash\" FOR DAITO" && hashes && echo " " && dcr web bash'
+alias daitoconsole='daitoapp && dcr web rails c'
+alias daitopsql='daitoapp && dcr postgres psql "postgresql://daito:daito@postgres/daito_development"'
+alias daitotest='daitoapp && dcd && dcr web ./scripts/fluffy.sh'
 
 # vscode
 alias code='/Applications/Visual\ Studio\ Code.app/Contents/MacOS/Electron'
