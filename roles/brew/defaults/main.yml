@@ -77,7 +77,6 @@ brew_cask_packages:
   - hazel
   - iterm2
   - kindle
-  - launchcontrol
   - little-snitch
   - maccy
   - macfuse
