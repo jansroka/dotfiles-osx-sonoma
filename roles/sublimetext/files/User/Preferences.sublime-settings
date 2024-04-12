@@ -94,6 +94,7 @@
     "binary_file_patterns": ["*.jpg", "*.jpeg", "*.png", "*.gif", "*.ttf", "*.tga", "*.dds", "*.ico", "*.eot", "*.pdf", "*.swf", "*.jar", "*.zip"],
 
     "ignored_packages": [
+        "HTML-CSS-JS Prettify",
         "Vintage",
     ],
     /*"font_size": 17,*/
@@ -101,4 +102,12 @@
     /*"font_size": 19,*/
     /*"font_size": 32,*/
     "index_files": true,
+    /*"font_size": 15,*/
+    /*"font_size": 22,*/
+    /*"font_size": 18,*/
+    /*"font_size": 18,*/
+    /*"font_size": 24,*/
+    /*"font_size": 21,*/
+    /*"font_size": 15,*/
+    /*"font_size": 19,*/
 }
