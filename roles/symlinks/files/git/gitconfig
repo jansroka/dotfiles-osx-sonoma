@@ -12,7 +12,7 @@
 
 [commit]
 	template = /Users/jan/.stCommitMsg
-	gpgSign = true
+	gpgsign = true
 
 [http]
 	postBuffer = 524288000
