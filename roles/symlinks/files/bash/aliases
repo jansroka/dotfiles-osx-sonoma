@@ -116,7 +116,7 @@ alias daitoattach='d attach web'
 alias daitobash='hashes && echo "STARTING \"bash\" FOR DAITO" && hashes && echo " " && dcr web bash'
 alias daitoconsole='dcr web rails c'
 alias daitopsql='dcr postgres psql "postgresql://daito:daito@postgres/daito_development"'
-alias daitotest='dcr web ./scripts/fluffy.sh'
+alias daitotest='docker compose -f docker-compose.test.yml run -it --rm web ./scripts/fluffy.sh'
 
 # vscode
 alias code='/Applications/Visual\ Studio\ Code.app/Contents/MacOS/Electron'
@@ -124,3 +124,6 @@ alias code='/Applications/Visual\ Studio\ Code.app/Contents/MacOS/Electron'
 # ansible
 # make sure we add the ssh key to ssh-agent so that we have to enter the ssh key password only once
 #alias ansible-playbook='ssh-add -l > /dev/null  || ssh-add ~/.ssh/id_dto-retool-upcloud && ansible-playbook'
+
+# Chrome
+alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
