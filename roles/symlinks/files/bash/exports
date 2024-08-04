@@ -49,8 +49,8 @@ export MANPAGER='less -X';
 export PATH=$HOME/.rbenv/shims:$PATH
 export optflags="-Wno-error=implicit-function-declaration"
 export CFLAGS="-Wno-error=implicit-function-declaration"
-export LDFLAGS="-L$(brew --prefix)/opt/libffi/lib $LDFLAGS"
-export CPPFLAGS="-I$(brew --prefix)/opt/libffi/include $CPPFLAGS"
+export LDFLAGS="-L$(brew --prefix)/opt/libffi/lib -L$HOMEBREW_PREFIX/opt/jemalloc/lib $LDFLAGS"
+export CPPFLAGS="-I$(brew --prefix)/opt/libffi/include -I$HOMEBREW_PREFIX/opt/jemalloc/include $CPPFLAGS"
 export PKG_CONFIG_PATH="$(brew --prefix)/opt/libffi/lib/pkgconfig:$PKG_CONFIG_PATH"
 export CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@3)"
 
