@@ -94,7 +94,6 @@
     "binary_file_patterns": ["*.jpg", "*.jpeg", "*.png", "*.gif", "*.ttf", "*.tga", "*.dds", "*.ico", "*.eot", "*.pdf", "*.swf", "*.jar", "*.zip"],
 
     "ignored_packages": [
-        "HTML-CSS-JS Prettify",
         "Vintage",
     ],
     /*"font_size": 17,*/
@@ -110,4 +109,9 @@
     /*"font_size": 21,*/
     /*"font_size": 15,*/
     /*"font_size": 19,*/
+    /*"font_size": 16,*/
+    /*"font_size": 12,*/
+    /*"font_size": 19,*/
+    /*"font_size": 18,*/
+    "font_size": 16,
 }
