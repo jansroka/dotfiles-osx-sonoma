@@ -46,7 +46,6 @@ export LC_CTYPE=en_US.UTF-8;
 export MANPAGER='less -X';
 
 # ruby
-export PATH=$HOME/.rbenv/shims:$PATH
 export optflags="-Wno-error=implicit-function-declaration"
 export CFLAGS="-Wno-error=implicit-function-declaration"
 export LDFLAGS="-L$(brew --prefix)/opt/libffi/lib -L$HOMEBREW_PREFIX/opt/jemalloc/lib $LDFLAGS"
