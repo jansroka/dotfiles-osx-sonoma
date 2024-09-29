@@ -21,8 +21,9 @@
       tags: npm
     - role: osx
       tags: osx
-    - role: pip
-      tags: pip
+    # update: 2024-09-28: role commented out because I use pyenv now
+    # - role: pip
+    #   tags: pip
     - role: sublimetext
       tags: sublimetext
     - role: symlinks
