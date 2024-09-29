@@ -6,7 +6,6 @@ brew_taps:
   - microsoft/git
 
 brew_packages:
-  - act
   - ansible
   - autoconf
   - automake
@@ -88,7 +87,6 @@ brew_cask_packages:
   - netnewswire
   - ngrok
   - omnifocus
-  - redisinsight
   - scrivener
   - signal
   - simple-comic
