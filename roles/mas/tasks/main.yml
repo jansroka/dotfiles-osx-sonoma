@@ -21,7 +21,11 @@
   become: true  # uninstall requires sudo
   tags: mas
 
+# This tasks likes to hang, so we'll run it async
+# allow to run for 45 sec, fire and forget
 - name: Upgrade all Mac App Store apps
   community.general.mas:
     upgrade_all: true
+  async: 45
+  poll: 0
   tags: mas
