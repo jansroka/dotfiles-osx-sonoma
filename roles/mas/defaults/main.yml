@@ -2,11 +2,8 @@
 # Make sure you do not clash with a brew cask here!
 # Get the list of currently installed with 'mas list'.
 mas_installed_apps:
-  - {id: 1055511498, name: "Day One"}
-  - {id: 604802021, name: "Outline"}
   - {id: 1303222628, name: "Paprika Recipe Manager 3"}
   - {id: 1351639930, name: "Gifski"}
-  - {id: 1274495053, name: "Microsoft To Do"}
   - {id: 1569813296, name: "1Password for Safari"}
 
 mas_uninstalled_apps:
