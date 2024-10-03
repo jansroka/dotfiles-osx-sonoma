@@ -86,6 +86,7 @@ brew_cask_packages:
   - microsoft-teams
   - netnewswire
   - ngrok
+  - obsidian
   - omnifocus
   - scrivener
   - signal
