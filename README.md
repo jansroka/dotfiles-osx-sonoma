@@ -1,3 +1,13 @@
+# Archived Repository
+
+This repo served me well for the 13 months that I used OSX Sonoma (from September 2023 to October 2024). But since I have moved on from OSX Sonoma to OSX Sequoia in October 2024, this repo is now archived. This archived state is a snapshot of the repo as it was when I last used it. It is not maintained anymore.
+
+Last used version of OSX SonomaVentura, that I used with these dotfiles, was 14.7 (released on September 16, 2024).
+
+My current dotfiles are located at https://github.com/jansroka/dotfiles.
+
+Original README.md follows below.
+
 # dotfiles
 
 These are my dotfiles for OSX Sonoma. There are many like them, but these ones are mine.
